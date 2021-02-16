@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icon">
+    <file>icons/asamagizle.png</file>
+    <file>icons/asamagoster.png</file>
+    <file>icons/autooff.png</file>
+    <file>icons/autoon.png</file>
+    <file>icons/ayarlar.png</file>
+    <file>icons/ocrclose.png</file>
+    <file>icons/pause.png</file>
+    <file>icons/General OCR_32px.png</file>
+    <file>icons/ask.png</file>
+  </qresource>
+</RCC>
