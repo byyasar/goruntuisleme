@@ -14,14 +14,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1225, 608)
+        MainWindow.resize(1154, 733)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/icon/icons/General OCR_32px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.startCam = QtWidgets.QPushButton(self.centralwidget)
-        self.startCam.setGeometry(QtCore.QRect(0, 490, 231, 61))
+        self.startCam.setGeometry(QtCore.QRect(0, 630, 191, 61))
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icon/icons/ocrclose.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.startCam.setIcon(icon1)
@@ -34,14 +34,14 @@ class Ui_MainWindow(object):
         self.imgCamera_2.setText("")
         self.imgCamera_2.setObjectName("imgCamera_2")
         self.btnOtomatikDurdur = QtWidgets.QPushButton(self.centralwidget)
-        self.btnOtomatikDurdur.setGeometry(QtCore.QRect(230, 490, 251, 61))
+        self.btnOtomatikDurdur.setGeometry(QtCore.QRect(180, 630, 191, 61))
         icon2 = QtGui.QIcon()
         icon2.addPixmap(QtGui.QPixmap(":/icon/icons/autoon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnOtomatikDurdur.setIcon(icon2)
         self.btnOtomatikDurdur.setIconSize(QtCore.QSize(32, 32))
         self.btnOtomatikDurdur.setObjectName("btnOtomatikDurdur")
         self.btnAyarlar = QtWidgets.QPushButton(self.centralwidget)
-        self.btnAyarlar.setGeometry(QtCore.QRect(490, 490, 211, 61))
+        self.btnAyarlar.setGeometry(QtCore.QRect(450, 580, 161, 61))
         icon3 = QtGui.QIcon()
         icon3.addPixmap(QtGui.QPixmap(":/icon/icons/ayarlar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnAyarlar.setIcon(icon3)
@@ -52,7 +52,7 @@ class Ui_MainWindow(object):
         self.lblogrencicevaplar.setInputMethodHints(QtCore.Qt.ImhNone)
         self.lblogrencicevaplar.setObjectName("lblogrencicevaplar")
         self.btnAsamalar = QtWidgets.QPushButton(self.centralwidget)
-        self.btnAsamalar.setGeometry(QtCore.QRect(710, 490, 221, 61))
+        self.btnAsamalar.setGeometry(QtCore.QRect(670, 580, 181, 61))
         icon4 = QtGui.QIcon()
         icon4.addPixmap(QtGui.QPixmap(":/icon/icons/asamagoster.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnAsamalar.setIcon(icon4)
@@ -66,7 +66,7 @@ class Ui_MainWindow(object):
         self.imgBulunan.setObjectName("imgBulunan")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1225, 24))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1154, 24))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -86,3 +86,11 @@ class Ui_MainWindow(object):
 import icons_rc
 
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

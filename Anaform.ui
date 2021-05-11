@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1154</width>
-    <height>733</height>
+    <width>1225</width>
+    <height>608</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,8 +22,8 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>630</y>
-      <width>191</width>
+      <y>490</y>
+      <width>231</width>
       <height>61</height>
      </rect>
     </property>
@@ -66,9 +66,9 @@
    <widget class="QPushButton" name="btnOtomatikDurdur">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>630</y>
-      <width>151</width>
+      <x>230</x>
+      <y>490</y>
+      <width>251</width>
       <height>61</height>
      </rect>
     </property>
@@ -89,9 +89,9 @@
    <widget class="QPushButton" name="btnAyarlar">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>630</y>
-      <width>141</width>
+      <x>490</x>
+      <y>490</y>
+      <width>211</width>
       <height>61</height>
      </rect>
     </property>
@@ -125,9 +125,9 @@
    <widget class="QPushButton" name="btnAsamalar">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>630</y>
-      <width>141</width>
+      <x>710</x>
+      <y>490</y>
+      <width>221</width>
       <height>61</height>
      </rect>
     </property>
@@ -173,8 +173,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1154</width>
-     <height>21</height>
+     <width>1225</width>
+     <height>24</height>
     </rect>
    </property>
   </widget>

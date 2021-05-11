@@ -1,4 +1,13 @@
 {
-    "python.pythonPath": "d:\\goruntuisleme\\venv\\Scripts\\python.exe"
-   
+    "python.pythonPath": "venv/bin/python",
+    "python.autoComplete.extraPaths": [
+        "~/.local/lib/Google/google_appengine",
+        "~/.local/lib/Google/google_appengine/lib/flask-0.12" ]   ,
+        "python.autoComplete.addBrackets": true,
+        "python.analysis.extraPaths": [
+            "~/.local/lib/Google/google_appengine",
+            "~/.local/lib/Google/google_appengine/lib/flask-0.12"
+        ],
+        "python.analysis.completeFunctionParens": true,
+    
 }

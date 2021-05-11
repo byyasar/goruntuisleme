@@ -57,6 +57,7 @@ cameraNo=0
 
 cap=cv2.VideoCapture(cameraNo)
 
+
 ############################################
 
 
@@ -209,7 +210,8 @@ class MainPage(QMainWindow):
             if cameraNo==-1:
                 pass
             else:
-                img2=cv2.rotate(img2, cv2.ROTATE_180)
+                pass
+                # img2=cv2.rotate(img2, cv2.ROTATE_180)
             imgCountours=img2.copy()
             imageFinal=img2.copy()
             imgBiggestCountours=img2.copy()
@@ -417,6 +419,8 @@ class MainPage(QMainWindow):
                     genislik=int(widthImg/1.5)
                     yukseklik=int(heightImg/1.5)
                     imageFinal=cv2.resize(imageFinal,(genislik,yukseklik))
+                    # imageFinal=cv2.rotate(imageFinal, cv2.ROTATE_180)
+
                     # print(f'yeni gen-yuk {genislik} {yukseklik}')
                     height, width, channel = imageFinal.shape
                     step = channel * width

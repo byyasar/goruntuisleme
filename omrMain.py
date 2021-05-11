@@ -34,11 +34,13 @@ oh=370
 ############################################
 
 webcamFeed=True
-cameraNo=0
+cameraNo=1
 
 cap=cv2.VideoCapture(cameraNo)
 cap.set(10,150)
 cap.set(28,10) #focus ayar
+
+
 
 while True:
     if webcamFeed:success,img=cap.read()
@@ -47,9 +49,11 @@ while True:
 
     img=cv2.resize(img,(widthImg  ,heightImg))
     img=cv2.rotate(img, cv2.ROTATE_180)
+    
     imgCountours=img.copy()
     imageFinal=img.copy()
     imgBiggestCountours=img.copy()
+    
 
     imgGray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     imgBlur=cv2.GaussianBlur(imgGray,(5,5),1)
