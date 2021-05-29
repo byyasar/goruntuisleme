@@ -22,7 +22,7 @@ secimSayisi=4
 sorusayisi=10
 #img = np.zeros((640, 480, 3), np.uint8)
 ################# CEVAP ANAHATARI ##########
-ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 2, 1, 1, 0, 1, 1, 3, 1, 0,1 ]  
+ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 3, 1, 0,1 ]  
 ############################################
 
 ################# TEST ALANI ###############
@@ -207,11 +207,12 @@ class MainPage(QMainWindow):
             
             global widthImg,heightImg,ans,x,y,xsag,xsol,w,h,esikdeger,ox,oy,ow,oh,secimSayisi,sorusayisi,sayac,sonbulunanNumara,bulunanNumara,sonbulunanpuan,bulunanpuan
             img2=cv2.resize(img,(widthImg ,heightImg))
+            print('kamere no ',cameraNo)
             if cameraNo==-1:
                 pass
             else:
-                pass
-                # img2=cv2.rotate(img2, cv2.ROTATE_180)
+                # pass
+                img2=cv2.rotate(img2, cv2.ROTATE_180)
             imgCountours=img2.copy()
             imageFinal=img2.copy()
             imgBiggestCountours=img2.copy()
@@ -462,7 +463,7 @@ class MainPage(QMainWindow):
                         bulunanpuan=score
                         if sayac<5:
                             print(f'sayac {sayac} bulunanpuan {bulunanpuan} sonbulunan {sonbulunanpuan}')
-                            if (sonbulunanpuan==bulunanpuan) and (sonbulunanNumara==bulunanNumara) and (int(sonbulunanNumara)>0):
+                            if (sonbulunanpuan==bulunanpuan) and (sonbulunanNumara==bulunanNumara) and (int(sonbulunanNumara)>-1):
                                 sayac+=1
                             else:
                                 sayac=0
