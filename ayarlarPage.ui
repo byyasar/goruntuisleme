@@ -142,13 +142,26 @@
    <property name="geometry">
     <rect>
      <x>80</x>
-     <y>270</y>
+     <y>290</y>
      <width>171</width>
      <height>51</height>
     </rect>
    </property>
    <property name="text">
     <string>Ayarları Kaydet</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cbKameraDondur">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>260</y>
+     <width>211</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Kamerayı 180 derece döndür</string>
    </property>
   </widget>
  </widget>

@@ -39,6 +39,7 @@ esikdeger=parametreler[0]
 tresh=parametreler[1]
 focus=parametreler[2]
 isik=parametreler[3]
+kamera_acisi=parametreler[4]
 ############################################
 
 ################# öĞRENCİ NUMARASI #########
@@ -105,12 +106,12 @@ class MainPage(QMainWindow):
     
     def ayarlarPenceresiniAc(self):
         self.ayarlarpenceresi.show()
-        self.ayarlarpenceresi.Parametreler(esikdeger,tresh,focus,isik)
+        self.ayarlarpenceresi.Parametreler(esikdeger,tresh,focus,isik,kamera_acisi)
         
   
         
     def ayarKaydet(self):
-        print(ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik))
+        print(ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik,kamera_acisi))
 
     def asamalarGosterGizle(self):
         global asamalariGoster
@@ -138,14 +139,15 @@ class MainPage(QMainWindow):
             self.ui.btnOtomatikDurdur.setIcon(QIcon(":/icon/icons/autoon.png"))
 
       
-    def isikDegisti2(self,_esikdeger,_tresh,_focus,_isik):
-        global esikdeger,tresh,focus,isik
+    def isikDegisti2(self,_esikdeger,_tresh,_focus,_isik,_kamera_acisi):
+        global esikdeger,tresh,focus,isik,kamera_acisi
         esikdeger=_esikdeger
         tresh=_tresh
         focus=_focus
         isik=_isik
+        kamera_acisi=_kamera_acisi
         
-        print(f'ayarlardan gelen değerler {_esikdeger,_tresh,_focus,_isik}')
+        print(f'ayarlardan gelen değerler {_esikdeger,_tresh,_focus,_isik,_kamera_acisi}')
         
     
     
@@ -210,9 +212,11 @@ class MainPage(QMainWindow):
             print('kamere no ',cameraNo)
             if cameraNo==-1:
                 pass
-            else:
-                # pass
+            elif kamera_acisi==True:
                 img2=cv2.rotate(img2, cv2.ROTATE_180)
+            else:
+                pass
+                
             imgCountours=img2.copy()
             imageFinal=img2.copy()
             imgBiggestCountours=img2.copy()
