@@ -15,6 +15,47 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(309, 360)
+        Form.setStyleSheet("*{\n"
+"background-color: #79BAF2;\n"
+"}\n"
+"\n"
+"QMainWindow{\n"
+"min-width: 310px;\n"
+"max-width: 310px;\n"
+"min-height:360px;\n"
+"max-height:360px;\n"
+"}\n"
+"QStatusBar{\n"
+"background-color: #0C3C59;\n"
+"\n"
+"}\n"
+"QPushButton {\n"
+"    border: 2px solid #8f8f91;\n"
+"    border-radius: 10px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #F2055C, stop: 1 #F20530);\n"
+"    min-width: 240px;\n"
+"max-width:245px;\n"
+"min-height:50px;\n"
+"    color:rgb(109    ,149    ,255    );\n"
+"\n"
+"    font: bold 18pt \"Arial\";\n"
+"\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #F20530, stop: 1 #F2055C);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.sliderIsik = QtWidgets.QSlider(Form)
         self.sliderIsik.setGeometry(QtCore.QRect(49, 60, 161, 22))
         self.sliderIsik.setMinimum(0)
@@ -51,7 +92,12 @@ class Ui_Form(object):
         self.lblFocus.setGeometry(QtCore.QRect(50, 100, 161, 16))
         self.lblFocus.setObjectName("lblFocus")
         self.btnAyarlariKaydet = QtWidgets.QPushButton(Form)
-        self.btnAyarlariKaydet.setGeometry(QtCore.QRect(80, 290, 171, 51))
+        self.btnAyarlariKaydet.setGeometry(QtCore.QRect(30, 300, 244, 54))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnAyarlariKaydet.sizePolicy().hasHeightForWidth())
+        self.btnAyarlariKaydet.setSizePolicy(sizePolicy)
         self.btnAyarlariKaydet.setObjectName("btnAyarlariKaydet")
         self.cbKameraDondur = QtWidgets.QCheckBox(Form)
         self.cbKameraDondur.setGeometry(QtCore.QRect(50, 260, 211, 20))

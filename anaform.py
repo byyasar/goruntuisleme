@@ -14,6 +14,7 @@ import ayarlarikaydet
 from ayarlarpage import SettingsPage
 
 
+
 ################ RESİM AYARLARI #############
 path="1.jpg"
 widthImg  =700
@@ -22,7 +23,8 @@ secimSayisi=4
 sorusayisi=10
 #img = np.zeros((640, 480, 3), np.uint8)
 ################# CEVAP ANAHATARI ##########
-ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 3, 1, 0,1 ]  
+ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 3, 1, 0,1 ]
+cevaplar=""  
 ############################################
 
 ################# TEST ALANI ###############
@@ -96,12 +98,24 @@ class MainPage(QMainWindow):
         self.ui.btnOtomatikDurdur.clicked.connect(self.otomatikDurdur)
         self.ui.btnAyarlar.clicked.connect(self.ayarlarPenceresiniAc)
         self.ayarlarpenceresi.new_isik_signal.connect(self.isikDegisti2)
+
+       
         
-        self.ui.lblogrencicevaplar.setStyleSheet("color: blue;"
-                        "font-size:12pt;"
-                        "background-color: yellow;"
-                        "selection-color: yellow;"
-                        "selection-background-color: blue;")
+    def cevapAnahtariniGoster(self):
+        cevaplar=""
+        for index,i in enumerate(ans):
+            cevaplar+=f"{index+1}-"
+            if i==0:
+                cevaplar+='A '
+            elif i==1:
+                cevaplar+='B '
+            elif i==2:
+                cevaplar+='C ' 
+            elif i==3:
+                cevaplar+='D ' 
+        return cevaplar
+             
+                
 
     
     def ayarlarPenceresiniAc(self):
@@ -116,14 +130,16 @@ class MainPage(QMainWindow):
     def asamalarGosterGizle(self):
         global asamalariGoster
         if asamalariGoster==False:
-            asamalariGoster=True
-            self.ui.btnAsamalar.setText('Aşamaları Göster')
+            
+            self.ui.btnAsamalar.setText('Aşamaları Gizle')
             self.ui.btnAsamalar.setIcon(QIcon(":/icon/icons/asamagoster.png"))
+            asamalariGoster=True
             
         else:
-            asamalariGoster=False
-            self.ui.btnAsamalar.setText('Aşamaları Gizle')
+           
+            self.ui.btnAsamalar.setText('Aşamaları Göster')
             self.ui.btnAsamalar.setIcon(QIcon(":/icon/icons/asamagizle.png"))
+            asamalariGoster=False
 
 
     def otomatikDurdur(self):
@@ -168,6 +184,12 @@ class MainPage(QMainWindow):
         asamalariGoster=ayarlar.durumKontrol(self,asamalariGoster)
         # self.otomatikDurdur()
         #print(f'durum {asamalariGoster}')
+
+         # cevapanahtarını yükle
+        cevaplar=self.cevapAnahtariniGoster()
+        self.ui.lblCevapAnahtari.setPlainText(cevaplar)
+
+        
       
     # start/stop timer
     def controlTimer(self):
@@ -197,11 +219,13 @@ class MainPage(QMainWindow):
             toogledurum=True
             self.ui.startCam.setText('Başlat')
             self.ui.startCam.setIcon(QIcon(":/icon/icons/General OCR_32px.png"))
+            self.ui.btnAsamalar.setEnabled(False)
         else:
             self.timer.start()
             toogledurum=False
             self.ui.startCam.setText('Duraklat')
             self.ui.startCam.setIcon(QIcon(":/icon/icons/ocrclose.png"))
+            self.ui.btnAsamalar.setEnabled(True)
         
     def GoruntuIsle(self,img):
 
@@ -352,6 +376,7 @@ class MainPage(QMainWindow):
                     YanlislariSay=grading.count(0)+grading.count(5)
                     BoslariSay=grading.count(4)
                     score=(DogrularSay/sorusayisi)*100
+                    score=round(score)
                     mesaj='No:'+ogrenciNumarasi+' Puan:'+str(score) +' Doğru:'+str(DogrularSay)+' Yanlış:'+str(YanlislariSay)+' Boş:'+str(BoslariSay)
                     #print(score)
 
@@ -483,8 +508,13 @@ class MainPage(QMainWindow):
                             # print(ogrenciDogruYanlis)
                     
                             b=''
-                            for i in range(len(ogrenciCevapSikleri)):
+                            """for i in range(len(ogrenciCevapSikleri)):
                                 b+=(ogrenciCevapSikleri[i]) 
+                            self.ui.lblogrencicevaplar.setPlainText(b)"""
+
+                            for index,i in enumerate(ogrenciCevapSikleri):
+                                b+=f"{index+1}-"
+                                b+=(i+" ") 
                             self.ui.lblogrencicevaplar.setPlainText(b)
 
                             imgResultSag=cv2.resize(imgResultSag,(genislik,yukseklik))
