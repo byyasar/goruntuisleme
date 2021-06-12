@@ -29,13 +29,11 @@ class Ui_MainWindow(object):
 "max-height:25px;\n"
 "\n"
 "}\n"
-"QPlainTextEdit#lblCevapAnahtari{\n"
-"font: bold 14pt \"Arial\";\n"
-"    background-color: rgb(255, 64, 255);\n"
+"QVBoxLayout#vlCevaplar{\n"
+"\n"
 "min-width: 1020px;\n"
 "max-width: 1020px;\n"
-"min-height:25px;\n"
-"max-height:25px;\n"
+"\n"
 "}\n"
 "\n"
 "\n"
@@ -92,7 +90,7 @@ class Ui_MainWindow(object):
         self.imgBulunan.setText("")
         self.imgBulunan.setObjectName("imgBulunan")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 530, 1041, 61))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 530, 1041, 61))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(10, 0, 10, 0)
@@ -234,35 +232,22 @@ class Ui_MainWindow(object):
         self.btnAyarlar.setIconSize(QtCore.QSize(32, 32))
         self.btnAyarlar.setObjectName("btnAyarlar")
         self.horizontalLayout.addWidget(self.btnAyarlar)
-        self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(0, 420, 1046, 101))
-        self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.horizontalLayoutWidget_2)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setSpacing(3)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.lblCevapAnahtari = QtWidgets.QPlainTextEdit(self.horizontalLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.lblCevapAnahtari.setFont(font)
-        self.lblCevapAnahtari.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.lblCevapAnahtari.setObjectName("lblCevapAnahtari")
-        self.verticalLayout.addWidget(self.lblCevapAnahtari)
-        self.lblogrencicevaplar = QtWidgets.QPlainTextEdit(self.horizontalLayoutWidget_2)
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.lblogrencicevaplar.setFont(font)
-        self.lblogrencicevaplar.setInputMethodHints(QtCore.Qt.ImhNone)
-        self.lblogrencicevaplar.setObjectName("lblogrencicevaplar")
-        self.verticalLayout.addWidget(self.lblogrencicevaplar)
+        self.widget = QtWidgets.QWidget(self.centralwidget)
+        self.widget.setGeometry(QtCore.QRect(10, 420, 1021, 91))
+        self.widget.setObjectName("widget")
+        self.vlCevaplar = QtWidgets.QVBoxLayout(self.widget)
+        self.vlCevaplar.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.vlCevaplar.setContentsMargins(10, 0, 10, 0)
+        self.vlCevaplar.setSpacing(5)
+        self.vlCevaplar.setObjectName("vlCevaplar")
+        self.cevapAnahtari = QtWidgets.QHBoxLayout()
+        self.cevapAnahtari.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
+        self.cevapAnahtari.setObjectName("cevapAnahtari")
+        self.vlCevaplar.addLayout(self.cevapAnahtari)
+        self.ogrenciCevaplar = QtWidgets.QHBoxLayout()
+        self.ogrenciCevaplar.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
+        self.ogrenciCevaplar.setObjectName("ogrenciCevaplar")
+        self.vlCevaplar.addLayout(self.ogrenciCevaplar)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setStyleSheet("")

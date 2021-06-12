@@ -1,6 +1,7 @@
+from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import*
 from PyQt5.QtGui import QImage,QPixmap,QFont,QIcon
-from PyQt5.QtCore import QTimer,pyqtSignal
+from PyQt5.QtCore import QTimer, center,pyqtSignal
 import cv2
 import numpy as np
 import utlis
@@ -99,20 +100,45 @@ class MainPage(QMainWindow):
         self.ui.btnAyarlar.clicked.connect(self.ayarlarPenceresiniAc)
         self.ayarlarpenceresi.new_isik_signal.connect(self.isikDegisti2)
 
+        
+        # self.ui.ogrenciCevaplar.setSizeConstraint(QLayout.SetMinimumSize)
+
+        styleSheetBos="""border: 1px solid green;background:#C0C0C0; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
+                 
+        for i in range(20):             
+            lbl = QtWidgets.QLabel('{}-{}'.format(i+1,'')) 
+            text =lbl.text()
+            lbl.setFixedWidth(40)
+            lbl.setStyleSheet(styleSheetBos)
+            self.ui.ogrenciCevaplar.addWidget(lbl)
+        
+        for i in range(20):             
+            lbl = QtWidgets.QLabel('{}-{}'.format(i+1,'')) 
+            text =lbl.text()
+            lbl.setFixedWidth(40)
+            self.ui.cevapAnahtari.addWidget(lbl)
+        
+        
+        
+
+    
+        
+     
+
        
         
     def cevapAnahtariniGoster(self):
         cevaplar=""
         for index,i in enumerate(ans):
-            cevaplar+=f"{index+1}-"
+            # cevaplar+=f"{index+1}-"
             if i==0:
-                cevaplar+='A '
+                cevaplar+='A'
             elif i==1:
-                cevaplar+='B '
+                cevaplar+='B'
             elif i==2:
-                cevaplar+='C ' 
+                cevaplar+='C' 
             elif i==3:
-                cevaplar+='D ' 
+                cevaplar+='D' 
         return cevaplar
              
                 
@@ -185,12 +211,8 @@ class MainPage(QMainWindow):
         # self.otomatikDurdur()
         #print(f'durum {asamalariGoster}')
 
-         # cevapanahtarını yükle
-        cevaplar=self.cevapAnahtariniGoster()
-        self.ui.lblCevapAnahtari.setPlainText(cevaplar)
-
+       
         
-      
     # start/stop timer
     def controlTimer(self):
         # if timer is stopped
@@ -480,8 +502,25 @@ class MainPage(QMainWindow):
                     
                     for i in myIndex:
                         cevaplar.append(i)
-                        
 
+
+                      # cevapanahtarını yükle
+                    try:
+
+                        cevaplar=self.cevapAnahtariniGoster()
+                        styleSheetCevapAnahtari="""border: 1px solid green;background:#808000; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
+                        for index,i in enumerate(cevaplar):
+                            self.ui.cevapAnahtari.itemAt(index).widget().setText(f'{index+1}-{i}')
+                            self.ui.cevapAnahtari.itemAt(index).widget().setStyleSheet(styleSheetCevapAnahtari)
+                    except Exception as Hata:
+                        print(f'hata oluştu {Hata}')
+
+
+                
+                    
+
+                  
+                    # print(f'öğrenci cevap şıkkı sayısı{len(ogrenciCevapSikleri)}')
                     #print(ogrenciCevapSikleri)
                     #print(ogrenciDogruYanlis)
                     # self.ui.imgBulunan.setVisible(False)
@@ -490,6 +529,7 @@ class MainPage(QMainWindow):
                         print(f'otomatik durdurma açık')
                         bulunanNumara=ogrenciNumarasi
                         bulunanpuan=score
+                        
                         if sayac<5:
                             print(f'sayac {sayac} bulunanpuan {bulunanpuan} sonbulunan {sonbulunanpuan}')
                             if (sonbulunanpuan==bulunanpuan) and (sonbulunanNumara==bulunanNumara) and (int(sonbulunanNumara)>-1):
@@ -511,11 +551,10 @@ class MainPage(QMainWindow):
                             """for i in range(len(ogrenciCevapSikleri)):
                                 b+=(ogrenciCevapSikleri[i]) 
                             self.ui.lblogrencicevaplar.setPlainText(b)"""
+                            
 
-                            for index,i in enumerate(ogrenciCevapSikleri):
-                                b+=f"{index+1}-"
-                                b+=(i+" ") 
-                            self.ui.lblogrencicevaplar.setPlainText(b)
+
+                            # self.ui.lblogrencicevaplar.setPlainText(b)
 
                             imgResultSag=cv2.resize(imgResultSag,(genislik,yukseklik))
                             # print(f'yeni gen-yuk {genislik} {yukseklik}')
@@ -526,6 +565,15 @@ class MainPage(QMainWindow):
                             # show image in img_label
                             # self.ui.imgBulunan.setVisible(True)
                             self.ui.imgBulunan.setPixmap(QPixmap.fromImage(qImg))
+                            # self.ui.ogrenciCevaplar.removeWidget()
+                            styleSheetDogru="""border: 1px solid green;background:#808000; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
+                            styleSheetYanlis="""border: 1px solid green;background:#FF0000; color:#ffffff; font:22 bold;border-radius: 4px;padding: 1px; """
+                        
+                            for index,i in enumerate(ogrenciCevapSikleri):
+                                self.ui.ogrenciCevaplar.itemAt(index).widget().setText(f'{index+1}-{i}')
+                                self.ui.ogrenciCevaplar.itemAt(index).widget().setStyleSheet(styleSheetDogru) if ogrenciDogruYanlis[index]=='D' else self.ui.ogrenciCevaplar.itemAt(index).widget().setStyleSheet(styleSheetYanlis)            
+
+                           
 
             except Exception as Hata:
                 print('Bulma hatası oluştu :',Hata)

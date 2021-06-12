@@ -29,13 +29,11 @@ min-height:25px;
 max-height:25px;
 
 }
-QPlainTextEdit#lblCevapAnahtari{
-font: bold 14pt &quot;Arial&quot;;
-	background-color: rgb(255, 64, 255);
+QVBoxLayout#vlCevaplar{
+
 min-width: 1020px;
 max-width: 1020px;
-min-height:25px;
-max-height:25px;
+
 }
 
 
@@ -126,7 +124,7 @@ QPushButton:default {
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>530</y>
       <width>1041</width>
       <height>61</height>
@@ -519,50 +517,41 @@ QPushButton:default {
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>10</x>
       <y>420</y>
-      <width>1046</width>
-      <height>101</height>
+      <width>1021</width>
+      <height>91</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0">
+    <layout class="QVBoxLayout" name="vlCevaplar">
      <property name="spacing">
-      <number>3</number>
+      <number>5</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
      </property>
      <item>
-      <widget class="QPlainTextEdit" name="lblCevapAnahtari">
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-        </font>
+      <layout class="QHBoxLayout" name="cevapAnahtari">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
        </property>
-       <property name="inputMethodHints">
-        <set>Qt::ImhNone</set>
-       </property>
-      </widget>
+      </layout>
      </item>
      <item>
-      <widget class="QPlainTextEdit" name="lblogrencicevaplar">
-       <property name="font">
-        <font>
-         <family>Arial</family>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <italic>false</italic>
-         <bold>true</bold>
-        </font>
+      <layout class="QHBoxLayout" name="ogrenciCevaplar">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMinimumSize</enum>
        </property>
-       <property name="inputMethodHints">
-        <set>Qt::ImhNone</set>
-       </property>
-      </widget>
+      </layout>
      </item>
     </layout>
    </widget>
