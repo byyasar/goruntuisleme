@@ -15,5 +15,5 @@ def ayarlariGetir():
     focus=ayarlar['focus']
     isik=ayarlar['isik']
     kamera_acisi=ayarlar['kamera_acisi']
-    print(f'Eşikdeger={esikdeger}, Tresh={tresh}, Focus={focus}, Işık={isik}, Kameraaçısı={kamera_acisi}')
+    # print(f'Eşikdeger={esikdeger}, Tresh={tresh}, Focus={focus}, Işık={isik}, Kameraaçısı={kamera_acisi}')
     return esikdeger,tresh,focus,isik,kamera_acisi

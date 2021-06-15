@@ -3,7 +3,7 @@ from anaform import MainPage
 # import system module
 import sys
 import os
-os.system('CLS')
+os.system('clear')
 app=QApplication([])
 window=MainPage()
 window.show()

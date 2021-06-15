@@ -73,7 +73,7 @@ sonbulunanpuan=-1
 
 #print(f'Çalışılan işletim sistemi {os.name}')
 
-print(f'Çalışılan işletim sistemi {platform.system()}')
+# print(f'Çalışılan işletim sistemi {platform.system()}')
 
 
 class MainPage(QMainWindow):
@@ -117,6 +117,17 @@ class MainPage(QMainWindow):
             text =lbl.text()
             lbl.setFixedWidth(40)
             self.ui.cevapAnahtari.addWidget(lbl)
+
+        # cevapanahtarını yükle
+        try:
+
+            cevaplar=self.cevapAnahtariniGoster()
+            styleSheetCevapAnahtari="""border: 1px solid green;background:#808000; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
+            for index,i in enumerate(cevaplar):
+                self.ui.cevapAnahtari.itemAt(index).widget().setText(f'{index+1}-{i}')
+                self.ui.cevapAnahtari.itemAt(index).widget().setStyleSheet(styleSheetCevapAnahtari)
+        except Exception as Hata:
+                print(f'hata oluştu {Hata}')
         
         
         
@@ -145,13 +156,19 @@ class MainPage(QMainWindow):
 
     
     def ayarlarPenceresiniAc(self):
-        self.ayarlarpenceresi.show()
+        # self.ayarlarpenceresi.show()
         self.ayarlarpenceresi.Parametreler(esikdeger,tresh,focus,isik,kamera_acisi)
+        self.ayarlarpenceresi.exec()
+        # mydialog=QDialog()
+        # mydialog.setModal(True)
+        # mydialog.exec()
+        
         
   
         
     def ayarKaydet(self):
-        print(ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik,kamera_acisi))
+        ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik,kamera_acisi)
+        # print(ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik,kamera_acisi))
 
     def asamalarGosterGizle(self):
         global asamalariGoster
@@ -255,7 +272,7 @@ class MainPage(QMainWindow):
             
             global widthImg,heightImg,ans,x,y,xsag,xsol,w,h,esikdeger,ox,oy,ow,oh,secimSayisi,sorusayisi,sayac,sonbulunanNumara,bulunanNumara,sonbulunanpuan,bulunanpuan
             img2=cv2.resize(img,(widthImg ,heightImg))
-            print('kamere no ',cameraNo)
+            # print('kamera no ',cameraNo)
             if cameraNo==-1:
                 pass
             elif kamera_acisi==True:
@@ -504,16 +521,7 @@ class MainPage(QMainWindow):
                         cevaplar.append(i)
 
 
-                      # cevapanahtarını yükle
-                    try:
-
-                        cevaplar=self.cevapAnahtariniGoster()
-                        styleSheetCevapAnahtari="""border: 1px solid green;background:#808000; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
-                        for index,i in enumerate(cevaplar):
-                            self.ui.cevapAnahtari.itemAt(index).widget().setText(f'{index+1}-{i}')
-                            self.ui.cevapAnahtari.itemAt(index).widget().setStyleSheet(styleSheetCevapAnahtari)
-                    except Exception as Hata:
-                        print(f'hata oluştu {Hata}')
+                    
 
 
                 
@@ -576,7 +584,8 @@ class MainPage(QMainWindow):
                            
 
             except Exception as Hata:
-                print('Bulma hatası oluştu :',Hata)
+                pass
+                # print('Bulma hatası oluştu :',Hata)
         except Exception as Hata:
             print('Hata oluştu :',Hata)
 

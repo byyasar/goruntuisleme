@@ -9,7 +9,7 @@ focus=0
 isik=0
 kamera_acisi=False
 
-class SettingsPage(QWidget):
+class SettingsPage(QDialog):
 
     new_isik_signal=pyqtSignal(int,int,int,int,bool)
     def __init__(self):
