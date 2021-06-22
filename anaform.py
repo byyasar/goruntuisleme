@@ -480,9 +480,10 @@ class MainPage(QMainWindow):
                     
                     if asamalariGoster==True:
                         imgBlank=np.zeros_like(img2)
-                        imageArray=([img2,imgGray,imgBlur,imgCanny],[imgCountours,imgBiggestCountours,imgWarpColored,imgThresh],[imgResultSag,imageFinal,imgBlank,imgBlank])
+                        # imageArray=([img2,imgGray,imgBlur,imgCanny],[imgCountours,imgBiggestCountours,imgWarpColored,imgThresh],[imgResultSag,imageFinal,imgBlank,imgBlank])
+                        imageArray=([imgBiggestCountours,imgThresh],[imgResultSag,imageFinal])
                         imgStacked=utlis.stackImages(imageArray,.5)
-                        cv2.imshow("imgStacked",imgStacked)
+                        cv2.imshow("Asamalar",imgStacked)
 
 
                     genislik=int(widthImg/1.5)
