@@ -1,0 +1,50 @@
+*{
+background-color: #79BAF2;
+}
+
+
+QMainWindow#girisForm{
+min-width: 400px;
+max-width: 400px;
+min-height:200px;
+max-height:200px;
+}
+QDialog#anaForm{
+min-width: 1000px;
+max-width: 1000px;
+min-height:610px;
+max-height:610px;
+}
+
+
+QStatusBar{
+background-color: #0C3C59;
+
+}
+QPushButton {
+    border: 2px solid #8f8f91;
+    border-radius: 10px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #F2055C, stop: 1 #F20530);
+    min-width: 180px;
+max-width:245px;
+min-height:50px;
+	color:rgb(109	,149	,255	);
+
+	font: bold 16pt "Arial";
+
+
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #F20530, stop: 1 #F2055C);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}

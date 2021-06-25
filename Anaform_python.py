@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'anaform.ui'
+# Form implementation generated from reading ui file 'AnaformDialog.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,231 +11,69 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1040, 620)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/icons/General OCR_32px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
-        MainWindow.setStyleSheet("*{\n"
-"background-color: #79BAF2;\n"
-"}\n"
-"QPlainTextEdit#lblogrencicevaplar{\n"
-"font: bold 14pt \"Arial\";\n"
-"min-width: 1020px;\n"
-"max-width: 1020px;\n"
-"min-height:25px;\n"
-"max-height:25px;\n"
-"\n"
-"}\n"
-"QVBoxLayout#vlCevaplar{\n"
-"\n"
-"min-width: 1020px;\n"
-"max-width: 1020px;\n"
-"\n"
-"}\n"
-"\n"
-"\n"
-"\n"
-"QMainWindow{\n"
-"min-width: 1040px;\n"
-"max-width: 1040px;\n"
-"min-height:620px;\n"
-"max-height:620px;\n"
-"}\n"
-"QStatusBar{\n"
-"background-color: #0C3C59;\n"
-"\n"
-"}\n"
-"QPushButton {\n"
-"    border: 2px solid #8f8f91;\n"
-"    border-radius: 10px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #F2055C, stop: 1 #F20530);\n"
-"    min-width: 240px;\n"
-"max-width:245px;\n"
-"min-height:50px;\n"
-"    color:rgb(109    ,149    ,255    );\n"
-"\n"
-"    font: bold 18pt \"Arial\";\n"
-"\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #F20530, stop: 1 #F2055C);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}")
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
-        self.imgCamera_2 = QtWidgets.QLabel(self.centralwidget)
-        self.imgCamera_2.setGeometry(QtCore.QRect(10, 10, 466, 400))
-        self.imgCamera_2.setMinimumSize(QtCore.QSize(466, 400))
-        self.imgCamera_2.setFrameShape(QtWidgets.QFrame.Panel)
-        self.imgCamera_2.setText("")
-        self.imgCamera_2.setObjectName("imgCamera_2")
-        self.imgBulunan = QtWidgets.QLabel(self.centralwidget)
-        self.imgBulunan.setGeometry(QtCore.QRect(480, 10, 466, 400))
+class Ui_Dialog(object):
+    def setupUi(self, Dialog):
+        Dialog.setObjectName("Dialog")
+        Dialog.resize(1000, 610)
+        Dialog.setStyleSheet("")
+        self.imgBulunan = QtWidgets.QLabel(Dialog)
+        self.imgBulunan.setGeometry(QtCore.QRect(520, 10, 466, 400))
         self.imgBulunan.setMinimumSize(QtCore.QSize(466, 400))
         self.imgBulunan.setFrameShape(QtWidgets.QFrame.Panel)
         self.imgBulunan.setText("")
         self.imgBulunan.setObjectName("imgBulunan")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 530, 1041, 61))
+        self.horizontalLayoutWidget = QtWidgets.QWidget(Dialog)
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 530, 981, 61))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(10, 0, 10, 0)
         self.horizontalLayout.setSpacing(3)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.startCam = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icon/icons/ocrclose.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.startCam.setIcon(icon1)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icon/icons/ocrclose.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.startCam.setIcon(icon)
         self.startCam.setIconSize(QtCore.QSize(32, 32))
         self.startCam.setObjectName("startCam")
         self.horizontalLayout.addWidget(self.startCam)
         self.btnOtomatikDurdur = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.PlaceholderText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
-        brush.setStyle(QtCore.Qt.SolidPattern)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        gradient = QtGui.QLinearGradient(0.0, 0.0, 0.0, 1.0)
-        gradient.setSpread(QtGui.QGradient.PadSpread)
-        gradient.setCoordinateMode(QtGui.QGradient.ObjectBoundingMode)
-        gradient.setColorAt(0.0, QtGui.QColor(242, 5, 92))
-        gradient.setColorAt(1.0, QtGui.QColor(242, 5, 48))
-        brush = QtGui.QBrush(gradient)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(109, 149, 255, 128))
-        brush.setStyle(QtCore.Qt.NoBrush)
-        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
-        self.btnOtomatikDurdur.setPalette(palette)
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icon/icons/autoon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnOtomatikDurdur.setIcon(icon2)
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap(":/icon/icons/autoon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnOtomatikDurdur.setIcon(icon1)
         self.btnOtomatikDurdur.setIconSize(QtCore.QSize(32, 32))
         self.btnOtomatikDurdur.setObjectName("btnOtomatikDurdur")
         self.horizontalLayout.addWidget(self.btnOtomatikDurdur)
         self.btnAsamalar = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.btnAsamalar.setFont(font)
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icon/icons/asamagoster.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnAsamalar.setIcon(icon3)
+        icon2 = QtGui.QIcon()
+        icon2.addPixmap(QtGui.QPixmap(":/icon/icons/asamagoster.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnAsamalar.setIcon(icon2)
         self.btnAsamalar.setIconSize(QtCore.QSize(32, 32))
         self.btnAsamalar.setObjectName("btnAsamalar")
         self.horizontalLayout.addWidget(self.btnAsamalar)
         self.btnAyarlar = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icon/icons/ayarlar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnAyarlar.setIcon(icon4)
+        icon3 = QtGui.QIcon()
+        icon3.addPixmap(QtGui.QPixmap(":/icon/icons/ayarlar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnAyarlar.setIcon(icon3)
         self.btnAyarlar.setIconSize(QtCore.QSize(32, 32))
         self.btnAyarlar.setObjectName("btnAyarlar")
         self.horizontalLayout.addWidget(self.btnAyarlar)
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(10, 420, 1021, 91))
-        self.widget.setObjectName("widget")
-        self.vlCevaplar = QtWidgets.QVBoxLayout(self.widget)
+        self.btnKopyala = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        icon4 = QtGui.QIcon()
+        icon4.addPixmap(QtGui.QPixmap(":/icon/icons/kopyala.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnKopyala.setIcon(icon4)
+        self.btnKopyala.setIconSize(QtCore.QSize(32, 32))
+        self.btnKopyala.setObjectName("btnKopyala")
+        self.horizontalLayout.addWidget(self.btnKopyala)
+        self.imgCamera_2 = QtWidgets.QLabel(Dialog)
+        self.imgCamera_2.setGeometry(QtCore.QRect(20, 10, 466, 400))
+        self.imgCamera_2.setMinimumSize(QtCore.QSize(466, 400))
+        self.imgCamera_2.setFrameShape(QtWidgets.QFrame.Panel)
+        self.imgCamera_2.setText("")
+        self.imgCamera_2.setObjectName("imgCamera_2")
+        self.layoutWidget = QtWidgets.QWidget(Dialog)
+        self.layoutWidget.setGeometry(QtCore.QRect(20, 420, 971, 91))
+        self.layoutWidget.setObjectName("layoutWidget")
+        self.vlCevaplar = QtWidgets.QVBoxLayout(self.layoutWidget)
         self.vlCevaplar.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.vlCevaplar.setContentsMargins(10, 0, 10, 0)
         self.vlCevaplar.setSpacing(5)
@@ -248,30 +86,27 @@ class Ui_MainWindow(object):
         self.ogrenciCevaplar.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
         self.ogrenciCevaplar.setObjectName("ogrenciCevaplar")
         self.vlCevaplar.addLayout(self.ogrenciCevaplar)
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setStyleSheet("")
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Dialog)
+        QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "AnaForm"))
-        self.startCam.setText(_translate("MainWindow", "Duraklat"))
-        self.btnOtomatikDurdur.setText(_translate("MainWindow", "Otomatik Durdur Kapalı"))
-        self.btnAsamalar.setText(_translate("MainWindow", "Aşamaları Göster "))
-        self.btnAyarlar.setText(_translate("MainWindow", "Ayarları Aç"))
+        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        self.startCam.setText(_translate("Dialog", " Duraklat"))
+        self.btnOtomatikDurdur.setText(_translate("Dialog", " Otomatik Durdur \n"
+"        Kapalı"))
+        self.btnAsamalar.setText(_translate("Dialog", " Aşamaları Göster "))
+        self.btnAyarlar.setText(_translate("Dialog", "  Ayarları Aç"))
+        self.btnKopyala.setText(_translate("Dialog", "  Kopyala"))
 import icons_rc
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
     sys.exit(app.exec_())

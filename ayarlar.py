@@ -1,6 +1,6 @@
 import cv2
 import numpy as np
-from Anaform_python import Ui_MainWindow
+from Anaform_python import Ui_Dialog
 from anaform import *
 
 def durumKontrol(self,_durum):

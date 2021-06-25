@@ -14,47 +14,7 @@
    <string>Ayarlar</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">*{
-background-color: #79BAF2;
-}
-
-QMainWindow{
-min-width: 310px;
-max-width: 310px;
-min-height:360px;
-max-height:360px;
-}
-QStatusBar{
-background-color: #0C3C59;
-
-}
-QPushButton {
-    border: 2px solid #8f8f91;
-    border-radius: 10px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #F2055C, stop: 1 #F20530);
-    min-width: 240px;
-max-width:245px;
-min-height:50px;
-	color:rgb(109	,149	,255	);
-
-	font: bold 18pt &quot;Arial&quot;;
-
-
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #F20530, stop: 1 #F2055C);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QSlider" name="sliderIsik">
    <property name="geometry">
@@ -197,7 +157,11 @@ QPushButton:default {
     </sizepolicy>
    </property>
    <property name="text">
-    <string>Ayarları Kaydet</string>
+    <string> Ayarları Kaydet</string>
+   </property>
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icon/icons/kaydet.png</normaloff>:/icon/icons/kaydet.png</iconset>
    </property>
   </widget>
   <widget class="QCheckBox" name="cbKameraDondur">
@@ -214,6 +178,8 @@ QPushButton:default {
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

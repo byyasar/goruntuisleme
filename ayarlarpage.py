@@ -14,7 +14,6 @@ class SettingsPage(QDialog):
     new_isik_signal=pyqtSignal(int,int,int,int,bool)
     def __init__(self):
         super().__init__()
-        
         self.ui=Ui_Form()
         self.ui.setupUi(self)
         self.ui.sliderEsik.valueChanged.connect(self.esikDegisti)     
@@ -23,7 +22,10 @@ class SettingsPage(QDialog):
         self.ui.sliderIsik.valueChanged.connect(self.isikDegisti)  
         self.ui.btnAyarlariKaydet.clicked.connect(self.ayarKaydet)
         self.ui.cbKameraDondur.stateChanged.connect(self.kameracisiDegisti)
-        # self.ui.sliderIsik.setValue(isik)
+        stil_dosya_yolu='style/stil.qss'
+        styleSheet=open(stil_dosya_yolu,'r').read()
+        self.setStyleSheet(styleSheet)
+        # self.setObjectName('ayarlarForm')
 
     def ayarKaydet(self):
         print(ayarlarikaydet.ayarlariKaydet(esikdeger,tresh,focus,isik,kamera_acisi))
@@ -58,7 +60,6 @@ class SettingsPage(QDialog):
         self.new_isik_signal.emit(esikdeger,tresh,focus,isik,kamera_acisi)
         #print('esik',esikdeger)
 
-        
     def Parametreler(self,_esikdeger,_tresh,_focus,_isik,_kamera_acisi):
         global esikdeger,tresh,focus,isik,kamera_acisi
         esikdeger=_esikdeger
@@ -75,7 +76,6 @@ class SettingsPage(QDialog):
         self.ui.sliderIsik.setValue(isik)
         self.ui.lblIsik.setText('Işık değeri :'+str(isik))
         self.ui.cbKameraDondur.setChecked(kamera_acisi)
-       
         print(f'gelen isik{_esikdeger,_tresh,_focus,_isik,_kamera_acisi}')
 
     

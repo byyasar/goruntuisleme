@@ -1,18 +1,17 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import*
-from PyQt5.QtGui import QImage,QPixmap,QFont,QIcon
-from PyQt5.QtCore import QTimer, center,pyqtSignal
+from PyQt5.QtGui import QImage,QPixmap,QIcon
+from PyQt5.QtCore import QTimer, center
 import cv2
 import numpy as np
 import utlis
-from PIL import Image, ImageDraw, ImageFont
-from Anaform_python import Ui_MainWindow
-import os
-import platform
+from Anaform_python import Ui_Dialog
 import ayarlar
 import ayarlarigetir
 import ayarlarikaydet
 from ayarlarpage import SettingsPage
+import cevaplar_islemler
+import pyperclip
 
 
 
@@ -24,8 +23,13 @@ secimSayisi=4
 sorusayisi=10
 #img = np.zeros((640, 480, 3), np.uint8)
 ################# CEVAP ANAHATARI ##########
-ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 3, 1, 0,1 ]
+ans=[]
+gelencevaplar=""
+
+# ans=[1, 3, 3, 2, 2, 2, 3, 1, 0, 2, 0, 1, 1, 0, 1, 1, 3, 1, 0,1 ]
 cevaplar=""  
+okunancevaplar=[]
+ogrenciCevapSikleri=[]
 ############################################
 
 ################# TEST ALANI ###############
@@ -71,17 +75,12 @@ bulunanNumara=-1
 bulunanpuan=-1
 sonbulunanpuan=-1
 
-#print(f'Çalışılan işletim sistemi {os.name}')
-
-# print(f'Çalışılan işletim sistemi {platform.system()}')
-
-
-class MainPage(QMainWindow):
+class MainPage_Anaform(QDialog):
     
     def __init__(self):
         super().__init__()
     
-        self.ui=Ui_MainWindow()
+        self.ui=Ui_Dialog()
         self.ui.setupUi(self)
         self.setWindowTitle("Test okuma v1")
         
@@ -100,8 +99,15 @@ class MainPage(QMainWindow):
         self.ui.btnAyarlar.clicked.connect(self.ayarlarPenceresiniAc)
         self.ayarlarpenceresi.new_isik_signal.connect(self.isikDegisti2)
 
-        
-        # self.ui.ogrenciCevaplar.setSizeConstraint(QLayout.SetMinimumSize)
+        self.ui.btnKopyala.clicked.connect(self.kopyala)
+        global gelencevaplar,ans
+        gelencevaplar=cevaplar_islemler.cevaplariGetir()
+        ans=self.rakamlariSayiyaDonustur(gelencevaplar)
+
+
+        stil_dosya_yolu='style/stil.qss'
+        styleSheet=open(stil_dosya_yolu,'r').read()
+        self.setStyleSheet(styleSheet)
 
         styleSheetBos="""border: 1px solid green;background:#C0C0C0; color:#ffffff; font:22 bold ;border-radius: 4px;padding: 1px; """
                  
@@ -127,16 +133,56 @@ class MainPage(QMainWindow):
                 self.ui.cevapAnahtari.itemAt(index).widget().setText(f'{index+1}-{i}')
                 self.ui.cevapAnahtari.itemAt(index).widget().setStyleSheet(styleSheetCevapAnahtari)
         except Exception as Hata:
-                print(f'hata oluştu {Hata}')
+                print(f'cevap yükleme hatası oluştu {Hata}')
         
         
-        
+    def convert(self,gelencevaplar):
+        li = list(map(int,gelencevaplar))
+        # li = list(gelencevaplar)
+        return li  
 
-    
+    def rakamlariSayiyaDonustur(self,gelenListe):
+        sayi=-1
+        liste=[]
+        for i in gelenListe:
+            if i=='A' or i=='a':
+                sayi=0
+            elif i=='B' or i=='b':
+                sayi=1
+            elif i=='C'or i=='c':
+                sayi=2
+            else:
+                sayi=3
+            liste.append(sayi) 
+        # print(f'donusum sonucu {liste}')
+        return liste
+
+
         
      
+    def kopyala(self):
+        # (str1.join(s))
+        global ogrenciCevapSikleri
+        # print(ogrenciCevapSikleri)
+        str1 = ''.join(str(e) for e in ogrenciCevapSikleri)
+        pyperclip.copy(str1)
+        self.mesaj_goster()
 
-       
+    
+    def mesaj_goster(self):
+        mesajbox=QMessageBox()
+        mesajbox.setIcon(QMessageBox.Information)
+        mesajbox.setText('Kopyalama başarılı')
+        mesajbox.setWindowTitle('Kopyalama')
+        mesajbox.setStandardButtons(QMessageBox.Ok)
+        mesajbox.setEscapeButton(QMessageBox.Ok)
+        buton_tamam=mesajbox.button(QMessageBox.Ok)
+        buton_tamam.setText('Tamam')
+        stil_dosya_yolu='style/stil.qss'
+        styleSheet=open(stil_dosya_yolu,'r').read()
+        mesajbox.setStyleSheet(styleSheet)
+        mesajbox.exec_()
+    
         
     def cevapAnahtariniGoster(self):
         cevaplar=""
@@ -189,12 +235,12 @@ class MainPage(QMainWindow):
         global otomatikDurdur
         if otomatikDurdur==False:
             otomatikDurdur=True
-            self.ui.btnOtomatikDurdur.setText('Otomatik Durdur Açık')
+            self.ui.btnOtomatikDurdur.setText(' Otomatik Durdur \n        Açık')
             self.ui.btnOtomatikDurdur.setIcon(QIcon(":/icon/icons/autooff.png"))
             
         else:
             otomatikDurdur=False
-            self.ui.btnOtomatikDurdur.setText('Otomatik Durdur Kapalı')
+            self.ui.btnOtomatikDurdur.setText(' Otomatik Durdur \n        Kapalı')
             self.ui.btnOtomatikDurdur.setIcon(QIcon(":/icon/icons/autoon.png"))
 
       
@@ -499,8 +545,9 @@ class MainPage(QMainWindow):
                     # show image in img_label
                     self.ui.imgCamera_2.setPixmap(QPixmap.fromImage(qImg))
 
-                   
-
+                    global okunancevaplar
+                    okunancevaplar=myIndex
+                    global ogrenciCevapSikleri
                     ogrenciCevapSikleri=[]
                     ogrenciDogruYanlis=[]
                     cevaplar=[]

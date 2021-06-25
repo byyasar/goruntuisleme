@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'anaform.ui'
+# Form implementation generated from reading ui file 'cevaplarKaydet.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -11,38 +11,38 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(1040, 620)
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icon/icons/General OCR_32px.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        Form.setWindowIcon(icon)
-        Form.setStyleSheet("*{\n"
+class Ui_Frame(object):
+    def setupUi(self, Frame):
+        Frame.setObjectName("Frame")
+        Frame.resize(510, 211)
+        Frame.setStyleSheet("*{\n"
 "background-color: #79BAF2;\n"
+"}\n"
+"QTextEdit{\n"
+"    background-color: rgb(255, 255, 255);\n"
 "}\n"
 "QPlainTextEdit#lblogrencicevaplar{\n"
 "font: bold 14pt \"Arial\";\n"
-"min-width: 1020px;\n"
-"max-width: 1020px;\n"
+"min-width: 400px;\n"
+"max-width: 400px;\n"
 "min-height:25px;\n"
 "max-height:25px;\n"
 "\n"
 "}\n"
 "QVBoxLayout#vlCevaplar{\n"
 "\n"
-"min-width: 1020px;\n"
-"max-width: 1020px;\n"
+"min-width: 400px;\n"
+"max-width: 200px;\n"
 "\n"
 "}\n"
 "\n"
 "\n"
 "\n"
-"QForm{\n"
-"min-width: 1040px;\n"
-"max-width: 1040px;\n"
-"min-height:620px;\n"
-"max-height:620px;\n"
+"QMainWindow{\n"
+"min-width: 400px;\n"
+"max-width: 400px;\n"
+"min-height:200px;\n"
+"max-height:200px;\n"
 "}\n"
 "QStatusBar{\n"
 "background-color: #0C3C59;\n"
@@ -75,35 +75,8 @@ class Ui_Form(object):
 "QPushButton:default {\n"
 "    border-color: navy; /* make the default button prominent */\n"
 "}")
-        self.centralwidget = QtWidgets.QWidget(Form)
-        self.centralwidget.setObjectName("centralwidget")
-        self.imgCamera_2 = QtWidgets.QLabel(self.centralwidget)
-        self.imgCamera_2.setGeometry(QtCore.QRect(10, 10, 466, 400))
-        self.imgCamera_2.setMinimumSize(QtCore.QSize(466, 400))
-        self.imgCamera_2.setFrameShape(QtWidgets.QFrame.Panel)
-        self.imgCamera_2.setText("")
-        self.imgCamera_2.setObjectName("imgCamera_2")
-        self.imgBulunan = QtWidgets.QLabel(self.centralwidget)
-        self.imgBulunan.setGeometry(QtCore.QRect(480, 10, 466, 400))
-        self.imgBulunan.setMinimumSize(QtCore.QSize(466, 400))
-        self.imgBulunan.setFrameShape(QtWidgets.QFrame.Panel)
-        self.imgBulunan.setText("")
-        self.imgBulunan.setObjectName("imgBulunan")
-        self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 530, 1041, 61))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setContentsMargins(10, 0, 10, 0)
-        self.horizontalLayout.setSpacing(3)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.startCam = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icon/icons/ocrclose.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.startCam.setIcon(icon1)
-        self.startCam.setIconSize(QtCore.QSize(32, 32))
-        self.startCam.setObjectName("startCam")
-        self.horizontalLayout.addWidget(self.startCam)
-        self.btnOtomatikDurdur = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.btnKaydet = QtWidgets.QPushButton(Frame)
+        self.btnKaydet.setGeometry(QtCore.QRect(150, 110, 244, 54))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(109, 149, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -204,74 +177,38 @@ class Ui_Form(object):
         brush = QtGui.QBrush(QtGui.QColor(109, 149, 255, 128))
         brush.setStyle(QtCore.Qt.NoBrush)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.PlaceholderText, brush)
-        self.btnOtomatikDurdur.setPalette(palette)
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icon/icons/autoon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnOtomatikDurdur.setIcon(icon2)
-        self.btnOtomatikDurdur.setIconSize(QtCore.QSize(32, 32))
-        self.btnOtomatikDurdur.setObjectName("btnOtomatikDurdur")
-        self.horizontalLayout.addWidget(self.btnOtomatikDurdur)
-        self.btnAsamalar = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.btnKaydet.setPalette(palette)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icon/icons/kaydet.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btnKaydet.setIcon(icon)
+        self.btnKaydet.setIconSize(QtCore.QSize(32, 32))
+        self.btnKaydet.setObjectName("btnKaydet")
+        self.txtCevaplar = QtWidgets.QTextEdit(Frame)
+        self.txtCevaplar.setGeometry(QtCore.QRect(20, 50, 471, 31))
+        self.txtCevaplar.setObjectName("txtCevaplar")
+        self.label = QtWidgets.QLabel(Frame)
+        self.label.setGeometry(QtCore.QRect(220, 20, 91, 21))
         font = QtGui.QFont()
-        font.setFamily("Arial")
         font.setPointSize(18)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
-        self.btnAsamalar.setFont(font)
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icon/icons/asamagoster.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnAsamalar.setIcon(icon3)
-        self.btnAsamalar.setIconSize(QtCore.QSize(32, 32))
-        self.btnAsamalar.setObjectName("btnAsamalar")
-        self.horizontalLayout.addWidget(self.btnAsamalar)
-        self.btnAyarlar = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        icon4 = QtGui.QIcon()
-        icon4.addPixmap(QtGui.QPixmap(":/icon/icons/ayarlar.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnAyarlar.setIcon(icon4)
-        self.btnAyarlar.setIconSize(QtCore.QSize(32, 32))
-        self.btnAyarlar.setObjectName("btnAyarlar")
-        self.horizontalLayout.addWidget(self.btnAyarlar)
-        self.widget = QtWidgets.QWidget(self.centralwidget)
-        self.widget.setGeometry(QtCore.QRect(10, 420, 1021, 91))
-        self.widget.setObjectName("widget")
-        self.vlCevaplar = QtWidgets.QVBoxLayout(self.widget)
-        self.vlCevaplar.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.vlCevaplar.setContentsMargins(10, 0, 10, 0)
-        self.vlCevaplar.setSpacing(5)
-        self.vlCevaplar.setObjectName("vlCevaplar")
-        self.cevapAnahtari = QtWidgets.QHBoxLayout()
-        self.cevapAnahtari.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
-        self.cevapAnahtari.setObjectName("cevapAnahtari")
-        self.vlCevaplar.addLayout(self.cevapAnahtari)
-        self.ogrenciCevaplar = QtWidgets.QHBoxLayout()
-        self.ogrenciCevaplar.setSizeConstraint(QtWidgets.QLayout.SetMinimumSize)
-        self.ogrenciCevaplar.setObjectName("ogrenciCevaplar")
-        self.vlCevaplar.addLayout(self.ogrenciCevaplar)
-        # Form.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(Form)
-        self.statusbar.setStyleSheet("")
-        self.statusbar.setObjectName("statusbar")
-        # Form.setStatusBar(self.statusbar)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(Frame)
+        QtCore.QMetaObject.connectSlotsByName(Frame)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, Frame):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "AnaForm"))
-        self.startCam.setText(_translate("Form", "Duraklat"))
-        self.btnOtomatikDurdur.setText(_translate("Form", "Otomatik Durdur Kapalı"))
-        self.btnAsamalar.setText(_translate("Form", "Aşamaları Göster "))
-        self.btnAyarlar.setText(_translate("Form", "Ayarları Aç"))
+        Frame.setWindowTitle(_translate("Frame", "Cevaplar"))
+        self.btnKaydet.setText(_translate("Frame", "    Kaydet"))
+        self.label.setText(_translate("Frame", "CEVAPLAR"))
 import icons_rc
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    Frame = QtWidgets.QFrame()
+    ui = Ui_Frame()
+    ui.setupUi(Frame)
+    Frame.show()
     sys.exit(app.exec_())

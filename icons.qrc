@@ -9,5 +9,8 @@
     <file>icons/pause.png</file>
     <file>icons/General OCR_32px.png</file>
     <file>icons/ask.png</file>
+    <file>icons/kaydet.png</file>
+    <file>icons/optikoku.png</file>
+    <file>icons/kopyala.png</file>
   </qresource>
 </RCC>
